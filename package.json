@@ -1,0 +1,37 @@
+{
+  "name": "dailydiet-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "lint": "eslint . --fix",
+    "test": "vitest",
+    "migrate:latest": "knex --knexfile ./src/database/knexfile.ts migrate:latest",
+    "migrate:rollback": "knex --knexfile ./src/database/knexfile.ts migrate:rollback",
+    "migrate:reset": "knex --knexfile ./src/database/knexfile.ts migrate:rollback --all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^9.11.1",
+    "fastify": "^5.0.0",
+    "globals": "^15.9.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^6.0.0",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  }
+}
