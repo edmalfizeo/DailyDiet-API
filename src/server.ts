@@ -1,16 +1,19 @@
 import Fastify from 'fastify';
 import cookie from '@fastify/cookie';
 import userRoutes from './routes/users/userRoutes';
+import recipeRoutes from './routes/recipes/recipeRoutes';
+
 
 const app = Fastify();
 
 app.register(cookie, {
-    secret: "my-secret", // Você pode definir um segredo para assinar os cookies, se necessário
-    parseOptions: {} // Opções de parsing de cookies, se necessário
+    secret: "my-secret",
+    parseOptions: {}
   });
   
-// Registra a rota de usuários
-app.register(userRoutes, { prefix: '/users' }); // O prefixo '/users' será adicionado a todas as rotas
+
+app.register(userRoutes, { prefix: '/users' });
+app.register(recipeRoutes, { prefix: '/recipes' });
 
 app.listen({ port: 3333 })
 .then(() => {
