@@ -15,11 +15,11 @@ const config: { [key: string]: Knex.Config } = {
   
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL, 
+    connection: process.env.DATABASE_URL,
     migrations: {
-      directory: path.resolve(__dirname, 'migrations'),
+        directory: path.resolve(__dirname, 'migrations'),
     },
-  },
+}
 };
 
 export default config;
