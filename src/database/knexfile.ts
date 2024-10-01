@@ -1,7 +1,6 @@
 import type { Knex } from 'knex';
 import path from 'path';
 
-// Configuração para diferentes ambientes (desenvolvimento, produção)
 const config: { [key: string]: Knex.Config } = {
   development: {
     client: 'sqlite3',
@@ -13,7 +12,7 @@ const config: { [key: string]: Knex.Config } = {
       directory: path.resolve(__dirname, 'migrations'), 
     },
   },
-
+  
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL, 

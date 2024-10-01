@@ -2,27 +2,23 @@ import { db } from '../database/database';
 
 export async function getUserMetrics(user_id: string) {
   try {
-    // Contar o total de receitas
     const totalRecipes = await db('user_recipes')
       .where('user_id', user_id)
       .count('id as total_recipes')
       .first();
 
-    // Contar o total de receitas dentro da dieta
     const totalDietRecipes = await db('user_recipes')
       .where('user_id', user_id)
       .andWhere('is_diet', true)
       .count('id as total_diet')
       .first();
 
-    // Contar o total de receitas fora da dieta
     const totalNonDietRecipes = await db('user_recipes')
       .where('user_id', user_id)
       .andWhere('is_diet', false)
       .count('id as total_non_diet')
       .first();
 
-    // Calcular a melhor sequência de refeições dentro da dieta
     const allMeals = await db('user_recipes')
       .where('user_id', user_id)
       .orderBy('meal_time', 'asc');

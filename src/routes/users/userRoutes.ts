@@ -3,10 +3,10 @@ import { z } from 'zod';
 import { db } from '../../database/database';
 import { v4 as uuidv4 } from 'uuid';
 import { createUser } from '../../services/createUser';
+import { deleteUser } from '../../services/deleteUser';
 
 export default async function userRoutes(app: FastifyInstance) {
     app.post('/', async (request, reply) => {
-        // Criação de um novo usuário
         const userSchema = z.object({
             id: z.string().uuid().optional(),
             name: z.string(),
@@ -32,10 +32,9 @@ export default async function userRoutes(app: FastifyInstance) {
                 name: user.name,
                 email: user.email,
                 password: user.password,
-                session_id: sessionId, // Inclui o sessionId
+                session_id: sessionId,
               };
               
-            // Salvar o usuário no banco de dados
             await createUser(userId);
             
             return reply.status(201).send(userId);
@@ -46,8 +45,26 @@ export default async function userRoutes(app: FastifyInstance) {
     });
 
     app.get('/', async (request, reply) => {
-        // Recupera todos os usuários
         const users = await db('users').select('*');
         return reply.send(users);
     })
+
+    app.delete<{ Params: { id: string } }>('/:id', async (request, reply) => {
+        try {
+            const { id } = request.params;
+    
+            // Verifica se o usuário existe
+            const user = await db('users').where({ id }).first();
+            if (!user) {
+                return reply.status(404).send({ message: 'Usuário não encontrado' });
+            }
+    
+            // Deleta o usuário
+            await deleteUser(id);
+    
+            return reply.status(200).send({ message: 'Usuário deletado com sucesso' });
+        } catch (error) {
+            return reply.status(500).send({ message: 'Erro ao deletar o usuário', error });
+        }
+    });
 }
