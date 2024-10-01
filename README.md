@@ -1,59 +1,56 @@
 # **Daily Diet API**
 
-A **Daily Diet API** é uma aplicação para controle de dieta diária, permitindo que usuários registrem suas refeições e acompanhem suas métricas alimentares.
+The **Daily Diet API** is an application designed for daily diet tracking, allowing users to log their meals and monitor their dietary metrics.
 
-## **Descrição do Projeto**
+## **Project Overview**
 
-O objetivo é criar uma API RESTful que permita aos usuários:
+The goal is to create a RESTful API that enables users to:
 
-- Criar uma conta de usuário.
-- Autenticar-se na aplicação.
-- Registrar, editar e apagar refeições.
-- Listar todas as refeições registradas.
-- Visualizar detalhes de uma única refeição.
-- Recuperar métricas pessoais sobre suas refeições.
-- Garantir que cada usuário só possa manipular suas próprias refeições.
+- Create a user account.
+- Authenticate into the application.
+- Log, edit, and delete meals.
+- List all logged meals.
+- View detailed information of a specific meal.
+- Retrieve personal metrics about their meals.
+- Ensure that each user can only manage their own meals.
 
-## **Tecnologias Utilizadas**
+## **Technologies Used**
 
-- **Node.js** com **TypeScript**
-- **Fastify** como framework web
-- **Knex** para interação com o banco de dados
-- **SQLite** como banco de dados em desenvolvimento
-- **ESLint** para padronização de código
-- **Vitest** para testes (a serem implementados no final)
+- **Node.js** with **TypeScript**
+- **Fastify** as the web framework
+- **Knex** for database interaction
+- **SQLite** as the development database
+- **ESLint** for code standardization
 
-## **Requisitos Funcionais**
+## **Functional Requirements**
 
-### **Usuários**
+### **Users**
 
-- [x] **Cadastro de Usuário**: Implementar a rota para criação de usuários, com os campos necessários (nome, email, senha).
-- [x] **Autenticação de Usuário**: Implementar a rota de login para autenticação dos usuários, retornando um token JWT.
-- [x] **Proteção de Rotas**: Criar um middleware para proteger rotas que exigem autenticação, validando o token JWT fornecido.
+- [x] **User Registration**: Implement the route to create users with necessary fields (name, email, password).
+- [x] **User Authentication**: Implement the login route for user authentication, returning a JWT token.
+- [x] **Route Protection**: Create middleware to protect routes that require authentication by validating the provided JWT token.
 
-### **Refeições**
+### **Meals**
 
-- [x] **Registrar Refeição**: Implementar a rota para registrar uma nova refeição, com os campos:
-  - Nome da refeição
-  - Descrição
-  - Data e Hora
-  - Indicador se está dentro da dieta ou não
-- [x] **Editar Refeição**: Implementar a rota para editar uma refeição existente.
-- [x] **Apagar Refeição**: Implementar a rota para deletar uma refeição.
-- [x] **Listar Refeições**: Implementar a rota para listar todas as refeições do usuário autenticado.
-- [x] **Visualizar Refeição**: Implementar a rota para visualizar detalhes de uma única refeição.
+- [x] **Log Meal**: Implement the route to log a new meal with the following fields:
+  - Meal name
+  - Description
+  - Date and time
+  - Indicator if the meal is within the diet or not
+- [x] **Edit Meal**: Implement the route to edit an existing meal.
+- [x] **Delete Meal**: Implement the route to delete a meal.
+- [x] **List Meals**: Implement the route to list all meals for the authenticated user.
+- [x] **View Meal**: Implement the route to view details of a specific meal.
 
-### **Métricas do Usuário**
+### **User Metrics**
 
-- [x] **Recuperar Métricas**: Implementar a rota para recuperar as métricas do usuário autenticado:
-  - Quantidade total de refeições registradas.
-  - Quantidade total de refeições dentro da dieta.
-  - Quantidade total de refeições fora da dieta.
-  - Melhor sequência de refeições dentro da dieta.
+- [x] **Retrieve Metrics**: Implement the route to retrieve metrics for the authenticated user:
+  - Total number of meals logged.
+  - Total number of meals within the diet.
+  - Total number of meals outside the diet.
+  - Best sequence of meals within the diet.
 
-### **Regras de Negócio**
+### **Business Rules**
 
-- [x]  **Restrição de Acesso**: Garantir que um usuário só possa visualizar, editar ou apagar as refeições que ele próprio criou.
-- [x] **Validação de Dados**: Implementar validações nos dados de entrada para todas as rotas.
-
-
+- [x] **Access Restriction**: Ensure that a user can only view, edit, or delete meals that they have created.
+- [x] **Data Validation**: Implement validation for input data in all routes.
