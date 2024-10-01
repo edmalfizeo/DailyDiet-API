@@ -17,8 +17,8 @@ app.register(userRoutes, { prefix: '/users' });
 app.register(recipeRoutes, { prefix: '/recipes' });
 app.register(summaryRoutes, { prefix: '/summary' });
 
-app.listen({ port: 3333 })
-.then(() => {
-    console.log('Server is running on port 3333');
+const PORT = Number(process.env.PORT) || 3333;
+
+app.listen({ port: PORT, host: '0.0.0.0' }, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
- 
