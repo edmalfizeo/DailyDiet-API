@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2019",          // Define a versão do JavaScript para a qual o TypeScript será compilado
-    "module": "CommonJS",        // Define o sistema de módulos
-    "rootDir": "./src",          // Diretório raiz do código TypeScript
-    "outDir": "./dist",          // Diretório de saída para os arquivos compilados
-    "strict": true,              // Ativa verificações estritas de tipo
-    "esModuleInterop": true,     // Habilita a interoperabilidade com módulos ES6
-    "skipLibCheck": true,        // Ignora a checagem de tipos nos arquivos de definição de biblioteca
-    "forceConsistentCasingInFileNames": true // Força o uso consistente de maiúsculas e minúsculas nos nomes de arquivos
+    "target": "ES2019",
+    "module": "CommonJS",        
+    "rootDir": "./src",          
+    "outDir": "./dist",          
+    "strict": true,              
+    "esModuleInterop": true,     
+    "skipLibCheck": true,        
+    "forceConsistentCasingInFileNames": true 
   },
-  "include": ["src/**/*"],       // Inclui todos os arquivos TypeScript na pasta src
-  "exclude": ["node_modules", "dist"] // Exclui as pastas node_modules e dist
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
